@@ -1,0 +1,14 @@
+{
+  "name": "paulystack",
+  "description": "Stop outsourcing your understanding: research, plan, and prove every change before you call it done",
+  "owner": {
+    "name": "SupaxInc"
+  },
+  "plugins": [
+    {
+      "name": "paulystack",
+      "source": "./plugins/paulystack",
+      "description": "Research before acting, proof before \"done\", a cold cross-exam of the proof, and a debrief before you commit"
+    }
+  ]
+}
