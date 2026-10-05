@@ -3,18 +3,18 @@
 **Stop outsourcing your understanding.**
 
 <p align="center">
-  <img src="assets/polystack.svg" alt="Six polygon slabs stacked into a tower, a triangle at the base up to an octagon, crowned by a gem. Each slab is labeled with a paulystack skill." width="760">
+  <img src="assets/polystack.svg" alt="A round brilliant diamond made of its 57 polygon facets. Each band of facets is labeled with a paulystack skill, from the pavilion at the bottom (create-verify-profile) to the octagonal table on top (debrief-changes)." width="760">
 </p>
 
 paulystack is a Claude Code plugin marketplace with one plugin, also called `paulystack`. Its skills make the agent research before it acts, plan before it writes code, and prove a change works before it says "done". You still read the diff, make the decisions, and run `git commit` yourself.
 
 ## Why "paulystack"
 
-*Poly* means many. A polymath knows many fields. A polygon is a flat shape with many sides, simple by itself. Stack enough of them and you get something solid.
+*Poly* means many. A polymath knows many fields. A polygon is a flat shape with many sides, simple by itself. Cut enough of them into one stone and you get a diamond: a round brilliant has 57 facets, and every one is a flat polygon.
 
-That is how the plugin is built. Each skill does one small job: map the code, write the plan, prove the change, cross-examine the proof, explain the diff. None of them is clever alone. Stacked, they turn an agent's output into work you understand and can stand behind. Paul + poly = pauly.
+That is how the plugin is built. Each skill does one small job: map the code, write the plan, prove the change, cross-examine the proof, explain the diff. None of them is clever alone. Together, they turn an agent's output into work you understand and can stand behind. Paul + poly = pauly.
 
-The picture shows the six skills of the core loop below. The other five (`pr-recon`, `technical-writing`, `explain`, `eli5`, `skill-authoring`) are tools you reach for around it.
+In the picture, each band of facets is one skill of the core loop below. `create-verify-profile` is the pavilion the stone rests on, and `debrief-changes` is the table on top, the window you look through. `call-saul` gets the star facets, as any star witness should. The other five (`pr-recon`, `technical-writing`, `explain`, `eli5`, `skill-authoring`) are tools you reach for around it.
 
 ## The philosophy
 

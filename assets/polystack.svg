@@ -1,74 +1,105 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="94 224 806 489" width="806" height="489" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 159 950 398" width="950" height="398" role="img" aria-labelledby="t d">
 <title id="t">paulystack</title>
-<desc id="d">Six polygon slabs stacked into a tower, from a triangle at the base to an octagon near the top, crowned by a gem. Each slab is one paulystack skill.</desc>
+<desc id="d">A round brilliant diamond made of its 57 polygon facets. Each band of facets is one paulystack skill: the pavilion is create-verify-profile, the lower girdle recon, the girdle plan-kickoff, the bezel facets pauly-mode, the star facets call-saul, and the octagonal table debrief-changes.</desc>
 <style>
-.l{animation:drop .8s cubic-bezier(.2,.9,.25,1) backwards}
+.b0{animation:drop0 .7s cubic-bezier(.2,.9,.25,1) 0.00s backwards}
+@keyframes drop0{from{transform:translateY(-6px)}}
+.b1{animation:drop1 .7s cubic-bezier(.2,.9,.25,1) 0.30s backwards}
+@keyframes drop1{from{transform:translateY(-15px)}}
+.b2{animation:drop2 .7s cubic-bezier(.2,.9,.25,1) 0.60s backwards}
+@keyframes drop2{from{transform:translateY(-24px)}}
+.b3{animation:drop3 .7s cubic-bezier(.2,.9,.25,1) 0.90s backwards}
+@keyframes drop3{from{transform:translateY(-33px)}}
+.b4{animation:drop4 .7s cubic-bezier(.2,.9,.25,1) 1.20s backwards}
+@keyframes drop4{from{transform:translateY(-42px)}}
+.b5{animation:drop5 .7s cubic-bezier(.2,.9,.25,1) 1.50s backwards}
+@keyframes drop5{from{transform:translateY(-51px)}}
+.spark{fill:#fffbe6;opacity:.95;transform-box:fill-box;transform-origin:center;animation:twinkle 1.6s ease-in-out 2.00s 3 both}
+.s2{animation-delay:2.50s}
 .lab{font:600 19px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8b949e}
 .cap{font:15px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#8b949e}
+.mid{font-size:16px;font-style:italic}
 .lead{stroke:#8b949e;stroke-width:1.2;stroke-dasharray:3 4;fill:none}
-@keyframes drop{from{transform:translateY(-60px);opacity:0}}
-@media (prefers-reduced-motion:reduce){.l{animation:none}}
+.dot{fill:#8b949e;stroke:#fff;stroke-opacity:.6;stroke-width:1}
+@keyframes twinkle{0%,100%{transform:scale(1)}50%{transform:scale(.35);opacity:.4}}
+@media (prefers-reduced-motion:reduce){[class^=b],.spark{animation:none!important}}
 </style>
-<g class="l" style="animation-delay:0.00s">
-<polygon points="542.2,671.0 117.8,671.0 117.8,689.0 542.2,689.0" fill="#1d4e7b"/>
-<polygon points="330.0,524.0 542.2,671.0 117.8,671.0" fill="#5196d6" stroke="#93bee5" stroke-width="1.5" stroke-linejoin="round"/>
-<path class="lead" d="M552.2,631.0 H640"/>
-<text class="lab" x="652" y="629.0">create-verify-profile</text>
-<text class="cap" x="652" y="648.0">how this repo runs and is proved</text>
+<g class="b b0">
+<polygon points="448.5,391.6 344.6,475.2 300.0,507.4 318.5,484.5" fill="#1a4f7f" stroke="#4787c2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300.0,413.7 318.5,484.5 300.0,507.4 281.5,484.5" fill="#1a4f7f" stroke="#4787c2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="151.5,391.6 281.5,484.5 300.0,507.4 255.4,475.2" fill="#1a4f7f" stroke="#4787c2" stroke-width="1" stroke-linejoin="round"/>
 </g>
-<g class="l" style="animation-delay:0.15s">
-<polygon points="506.8,521.1 452.4,640.7 452.4,658.7 506.8,539.1" fill="#282dac"/>
-<polygon points="452.4,640.7 153.2,618.9 153.2,636.9 452.4,658.7" fill="#1a1e73"/>
-<polygon points="506.8,521.1 452.4,640.7 153.2,618.9 207.6,499.3" fill="#5156d6" stroke="#9396e5" stroke-width="1.5" stroke-linejoin="round"/>
-<path class="lead" d="M516.8,579.0 H640"/>
-<text class="lab" x="652" y="577.0">recon</text>
-<text class="cap" x="652" y="596.0">map the code, check the docs</text>
+<g class="b b1">
+<polygon points="494.0,367.2 448.5,391.6 344.6,475.2" fill="#1a1e7f" stroke="#474cc2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="448.5,391.6 380.4,407.9 318.5,484.5" fill="#1a1e7f" stroke="#474cc2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="380.4,407.9 300.0,413.7 318.5,484.5" fill="#1a1e7f" stroke="#474cc2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300.0,413.7 219.6,407.9 281.5,484.5" fill="#1a1e7f" stroke="#474cc2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="219.6,407.9 151.5,391.6 281.5,484.5" fill="#1a1e7f" stroke="#474cc2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="151.5,391.6 106.0,367.2 255.4,475.2" fill="#1a1e7f" stroke="#474cc2" stroke-width="1" stroke-linejoin="round"/>
 </g>
-<g class="l" style="animation-delay:0.30s">
-<polygon points="517.8,521.4 379.8,590.5 379.8,608.5 517.8,539.4" fill="#6426a2"/>
-<polygon points="379.8,590.5 173.0,559.4 173.0,577.4 379.8,608.5" fill="#41186a"/>
-<polygon points="396.2,447.6 517.8,521.4 379.8,590.5 173.0,559.4 183.1,471.1" fill="#9351d6" stroke="#bc93e5" stroke-width="1.5" stroke-linejoin="round"/>
-<path class="lead" d="M527.8,527.0 H640"/>
-<text class="lab" x="652" y="525.0">plan-kickoff</text>
-<text class="cap" x="652" y="544.0">an explicit plan before code</text>
+<g class="b b2">
+<polygon points="451.3,314.4 510.0,330.0 494.0,358.8" fill="#6e25b7" stroke="#a67ad3" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="451.3,314.4 494.0,358.8 448.5,383.2" fill="#7e2bd1" stroke="#b691da" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="362.7,346.1 448.5,383.2 380.4,399.5" fill="#8e43d9" stroke="#c6a9e2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="362.7,346.1 380.4,399.5 300.0,405.3" fill="#9d5cde" stroke="#d5c0ea" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="237.3,346.1 300.0,405.3 219.6,399.5" fill="#a76ee1" stroke="#e0d0ef" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="237.3,346.1 219.6,399.5 151.5,383.2" fill="#ad77e3" stroke="#e5d8f2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="148.7,314.4 151.5,383.2 106.0,358.8" fill="#ac75e3" stroke="#e4d7f2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="148.7,314.4 106.0,358.8 90.0,330.0" fill="#a56ae0" stroke="#ddccee" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="148.7,269.4 90.0,330.0 106.0,301.2" fill="#9956dc" stroke="#d1bae8" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="451.3,269.4 494.0,301.2 510.0,330.0" fill="#6221a3" stroke="#9a68cd" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="510.0,330.0 494.0,358.8 494.0,367.2 510.0,338.4" fill="#4c1a7f" stroke="#8547c2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="494.0,358.8 448.5,383.2 448.5,391.6 494.0,367.2" fill="#4c1a7f" stroke="#8547c2" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="448.5,383.2 380.4,399.5 380.4,407.9 448.5,391.6" fill="#5c1f98" stroke="#945ec9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="380.4,399.5 300.0,405.3 300.0,413.7 380.4,407.9" fill="#7227bd" stroke="#aa7fd4" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300.0,405.3 219.6,399.5 219.6,407.9 300.0,413.7" fill="#8230d5" stroke="#ba98dd" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="219.6,399.5 151.5,383.2 151.5,391.6 219.6,407.9" fill="#8a3dd7" stroke="#c2a4e1" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="151.5,383.2 106.0,358.8 106.0,367.2 151.5,391.6" fill="#893bd7" stroke="#c1a2e0" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="106.0,358.8 90.0,330.0 90.0,338.4 106.0,367.2" fill="#7e2bd2" stroke="#b792db" stroke-width="1" stroke-linejoin="round"/>
 </g>
-<g class="l" style="animation-delay:0.45s">
-<polygon points="472.5,434.3 469.8,499.5 469.8,517.5 472.5,452.3" fill="#ad28a0"/>
-<polygon points="327.3,531.2 187.5,497.7 187.5,515.7 327.3,549.2" fill="#62175a"/>
-<polygon points="469.8,499.5 327.3,531.2 327.3,549.2 469.8,517.5" fill="#942288"/>
-<polygon points="472.5,434.3 469.8,499.5 327.3,531.2 187.5,497.7 190.2,432.5 332.7,400.8" fill="#d651c9" stroke="#e593dd" stroke-width="1.5" stroke-linejoin="round"/>
-<path class="lead" d="M482.5,475.0 H640"/>
-<text class="lab" x="652" y="473.0">pauly-mode</text>
-<text class="cap" x="652" y="492.0">proof before any &quot;done&quot;</text>
+<g class="b b3">
+<polygon points="417.6,259.4 451.3,269.4 510.0,330.0 451.3,314.4" fill="#ab239e" stroke="#cf70c6" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="383.2,289.2 451.3,314.4 448.5,383.2 362.7,346.1" fill="#d530c4" stroke="#dd98d6" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300.0,301.6 362.7,346.1 300.0,405.3 237.3,346.1" fill="#de60d2" stroke="#ebc3e7" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="216.8,289.2 237.3,346.1 151.5,383.2 148.7,314.4" fill="#e377d8" stroke="#f2d9f0" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="182.4,259.4 148.7,314.4 90.0,330.0 148.7,269.4" fill="#e068d4" stroke="#eecbea" stroke-width="1" stroke-linejoin="round"/>
 </g>
-<g class="l" style="animation-delay:0.60s">
-<polygon points="469.8,416.6 412.1,459.4 412.1,477.4 469.8,434.6" fill="#a7274d"/>
-<polygon points="292.5,468.0 201.2,435.9 201.2,453.9 292.5,486.0" fill="#5b152a"/>
-<polygon points="412.1,459.4 292.5,468.0 292.5,486.0 412.1,477.4" fill="#841f3d"/>
-<polygon points="422.3,371.9 469.8,416.6 412.1,459.4 292.5,468.0 201.2,435.9 206.8,387.4 305.3,358.9" fill="#d65179" stroke="#e593ac" stroke-width="1.5" stroke-linejoin="round"/>
-<path class="lead" d="M479.8,423.0 H640"/>
-<text class="lab" x="652" y="421.0">call-saul</text>
-<text class="cap" x="652" y="440.0">cold cross-exam of the proof</text>
+<g class="b b4">
+<polygon points="417.6,259.4 383.2,289.2 451.3,314.4" fill="#d42c5f" stroke="#dc95aa" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="383.2,289.2 300.0,301.6 362.7,346.1" fill="#dd577f" stroke="#e8bbc9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300.0,301.6 216.8,289.2 237.3,346.1" fill="#e27394" stroke="#f1d5dd" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="216.8,289.2 182.4,259.4 148.7,314.4" fill="#e27193" stroke="#f0d3db" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="182.4,259.4 216.8,229.6 148.7,269.4" fill="#db517b" stroke="#e7b6c5" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="383.2,229.6 417.6,259.4 451.3,269.4" fill="#b52550" stroke="#d27893" stroke-width="1" stroke-linejoin="round"/>
 </g>
-<g class="l" style="animation-delay:0.75s">
-<polygon points="443.5,349.0 433.1,384.9 433.1,402.9 443.5,367.0" fill="#ad6028"/>
-<polygon points="272.7,403.3 216.5,375.0 216.5,393.0 272.7,421.3" fill="#552f13"/>
-<polygon points="433.1,384.9 362.4,407.4 362.4,425.4 433.1,402.9" fill="#9a5624"/>
-<polygon points="362.4,407.4 272.7,403.3 272.7,421.3 362.4,425.4" fill="#76411b"/>
-<polygon points="443.5,349.0 433.1,384.9 362.4,407.4 272.7,403.3 216.5,375.0 226.9,339.1 297.6,316.6 387.3,320.7" fill="#d68951" stroke="#e5b693" stroke-width="1.5" stroke-linejoin="round"/>
-<path class="lead" d="M453.5,371.0 H640"/>
-<text class="lab" x="652" y="369.0">debrief-changes</text>
-<text class="cap" x="652" y="388.0">you read the diff, you commit</text>
+<g class="b b5">
+<polygon points="417.6,259.4 383.2,289.2 300.0,301.6 216.8,289.2 182.4,259.4 216.8,229.6 300.0,217.3 383.2,229.6" fill="#dc8c52" stroke="#e7cbb7" stroke-width="1" stroke-linejoin="round"/>
 </g>
-<g class="l" style="animation-delay:0.90s">
-<polygon points="284.0,276.0 304.0,254.0 320.0,276.0" fill="#f3d671" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="304.0,254.0 356.0,254.0 340.0,276.0 320.0,276.0" fill="#f7e4a0" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="356.0,254.0 376.0,276.0 340.0,276.0" fill="#f1ce55" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="284.0,276.0 320.0,276.0 330.0,324.0" fill="#ecbe1c" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="320.0,276.0 340.0,276.0 330.0,324.0" fill="#f0cc4b" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="340.0,276.0 376.0,276.0 330.0,324.0" fill="#c69e10" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
-<path class="lead" d="M386,282 H640"/>
-<text class="lab" x="652" y="280">shipped work</text>
-<text class="cap" x="652" y="299">understood, proved, yours</text>
-</g>
+<path class="lead" d="M352.9,464.7 L600.0,503.4 H628"/>
+<circle cx="352.9" cy="464.7" r="3" class="dot"/>
+<text class="lab" x="640" y="500.4">create-verify-profile</text>
+<text class="cap" x="640" y="519.4">pavilion: how this repo runs and is proved</text>
+<path class="lead" d="M429.0,411.3 L600.0,448.2 H628"/>
+<circle cx="429.0" cy="411.3" r="3" class="dot"/>
+<text class="lab" x="640" y="445.2">recon</text>
+<text class="cap" x="640" y="464.2">lower girdle: map the code, check the docs</text>
+<path class="lead" d="M502.0,348.6 L600.0,393.0 H628"/>
+<circle cx="502.0" cy="348.6" r="3" class="dot"/>
+<text class="lab" x="640" y="390.0">plan-kickoff</text>
+<text class="cap" x="640" y="409.0">the girdle: an explicit plan before code</text>
+<path class="lead" d="M457.6,293.3 L600.0,337.7 H628"/>
+<circle cx="457.6" cy="293.3" r="3" class="dot"/>
+<text class="lab" x="640" y="334.7">pauly-mode</text>
+<text class="cap" x="640" y="353.7">bezel facets: proof before any &quot;done&quot;</text>
+<path class="lead" d="M417.4,287.7 L600.0,282.5 H628"/>
+<circle cx="417.4" cy="287.7" r="3" class="dot"/>
+<text class="lab" x="640" y="279.5">call-saul</text>
+<text class="cap" x="640" y="298.5">star facets: cold cross-exam of the proof</text>
+<path class="lead" d="M358.8,259.4 L600.0,227.3 H628"/>
+<circle cx="358.8" cy="259.4" r="3" class="dot"/>
+<text class="lab" x="640" y="224.3">debrief-changes</text>
+<text class="cap" x="640" y="243.3">the table: you read the diff, you commit</text>
+<path class="spark" d="M250.3,236.9 Q253.8,249.4 266.3,252.9 Q253.8,256.5 250.3,268.9 Q246.8,256.5 234.3,252.9 Q246.8,249.4 250.3,236.9Z"/>
+<path class="spark s2" d="M400.3,313.9 Q402.3,321.0 409.3,322.9 Q402.3,324.9 400.3,331.9 Q398.3,324.9 391.3,322.9 Q398.3,321.0 400.3,313.9Z"/>
+<text class="cap mid" x="300.0" y="541.4" text-anchor="middle">57 polygons, cut into one diamond: shipped work</text>
 </svg>
