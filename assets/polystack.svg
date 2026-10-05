@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="94 224 806 489" width="806" height="489" role="img" aria-labelledby="t d">
+<title id="t">paulystack</title>
+<desc id="d">Six polygon slabs stacked into a tower, from a triangle at the base to an octagon near the top, crowned by a gem. Each slab is one paulystack skill.</desc>
+<style>
+.l{animation:drop .8s cubic-bezier(.2,.9,.25,1) backwards}
+.lab{font:600 19px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8b949e}
+.cap{font:15px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#8b949e}
+.lead{stroke:#8b949e;stroke-width:1.2;stroke-dasharray:3 4;fill:none}
+@keyframes drop{from{transform:translateY(-60px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.l{animation:none}}
+</style>
+<g class="l" style="animation-delay:0.00s">
+<polygon points="542.2,671.0 117.8,671.0 117.8,689.0 542.2,689.0" fill="#1d4e7b"/>
+<polygon points="330.0,524.0 542.2,671.0 117.8,671.0" fill="#5196d6" stroke="#93bee5" stroke-width="1.5" stroke-linejoin="round"/>
+<path class="lead" d="M552.2,631.0 H640"/>
+<text class="lab" x="652" y="629.0">create-verify-profile</text>
+<text class="cap" x="652" y="648.0">how this repo runs and is proved</text>
+</g>
+<g class="l" style="animation-delay:0.15s">
+<polygon points="506.8,521.1 452.4,640.7 452.4,658.7 506.8,539.1" fill="#282dac"/>
+<polygon points="452.4,640.7 153.2,618.9 153.2,636.9 452.4,658.7" fill="#1a1e73"/>
+<polygon points="506.8,521.1 452.4,640.7 153.2,618.9 207.6,499.3" fill="#5156d6" stroke="#9396e5" stroke-width="1.5" stroke-linejoin="round"/>
+<path class="lead" d="M516.8,579.0 H640"/>
+<text class="lab" x="652" y="577.0">recon</text>
+<text class="cap" x="652" y="596.0">map the code, check the docs</text>
+</g>
+<g class="l" style="animation-delay:0.30s">
+<polygon points="517.8,521.4 379.8,590.5 379.8,608.5 517.8,539.4" fill="#6426a2"/>
+<polygon points="379.8,590.5 173.0,559.4 173.0,577.4 379.8,608.5" fill="#41186a"/>
+<polygon points="396.2,447.6 517.8,521.4 379.8,590.5 173.0,559.4 183.1,471.1" fill="#9351d6" stroke="#bc93e5" stroke-width="1.5" stroke-linejoin="round"/>
+<path class="lead" d="M527.8,527.0 H640"/>
+<text class="lab" x="652" y="525.0">plan-kickoff</text>
+<text class="cap" x="652" y="544.0">an explicit plan before code</text>
+</g>
+<g class="l" style="animation-delay:0.45s">
+<polygon points="472.5,434.3 469.8,499.5 469.8,517.5 472.5,452.3" fill="#ad28a0"/>
+<polygon points="327.3,531.2 187.5,497.7 187.5,515.7 327.3,549.2" fill="#62175a"/>
+<polygon points="469.8,499.5 327.3,531.2 327.3,549.2 469.8,517.5" fill="#942288"/>
+<polygon points="472.5,434.3 469.8,499.5 327.3,531.2 187.5,497.7 190.2,432.5 332.7,400.8" fill="#d651c9" stroke="#e593dd" stroke-width="1.5" stroke-linejoin="round"/>
+<path class="lead" d="M482.5,475.0 H640"/>
+<text class="lab" x="652" y="473.0">pauly-mode</text>
+<text class="cap" x="652" y="492.0">proof before any &quot;done&quot;</text>
+</g>
+<g class="l" style="animation-delay:0.60s">
+<polygon points="469.8,416.6 412.1,459.4 412.1,477.4 469.8,434.6" fill="#a7274d"/>
+<polygon points="292.5,468.0 201.2,435.9 201.2,453.9 292.5,486.0" fill="#5b152a"/>
+<polygon points="412.1,459.4 292.5,468.0 292.5,486.0 412.1,477.4" fill="#841f3d"/>
+<polygon points="422.3,371.9 469.8,416.6 412.1,459.4 292.5,468.0 201.2,435.9 206.8,387.4 305.3,358.9" fill="#d65179" stroke="#e593ac" stroke-width="1.5" stroke-linejoin="round"/>
+<path class="lead" d="M479.8,423.0 H640"/>
+<text class="lab" x="652" y="421.0">call-saul</text>
+<text class="cap" x="652" y="440.0">cold cross-exam of the proof</text>
+</g>
+<g class="l" style="animation-delay:0.75s">
+<polygon points="443.5,349.0 433.1,384.9 433.1,402.9 443.5,367.0" fill="#ad6028"/>
+<polygon points="272.7,403.3 216.5,375.0 216.5,393.0 272.7,421.3" fill="#552f13"/>
+<polygon points="433.1,384.9 362.4,407.4 362.4,425.4 433.1,402.9" fill="#9a5624"/>
+<polygon points="362.4,407.4 272.7,403.3 272.7,421.3 362.4,425.4" fill="#76411b"/>
+<polygon points="443.5,349.0 433.1,384.9 362.4,407.4 272.7,403.3 216.5,375.0 226.9,339.1 297.6,316.6 387.3,320.7" fill="#d68951" stroke="#e5b693" stroke-width="1.5" stroke-linejoin="round"/>
+<path class="lead" d="M453.5,371.0 H640"/>
+<text class="lab" x="652" y="369.0">debrief-changes</text>
+<text class="cap" x="652" y="388.0">you read the diff, you commit</text>
+</g>
+<g class="l" style="animation-delay:0.90s">
+<polygon points="284.0,276.0 304.0,254.0 320.0,276.0" fill="#f3d671" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="304.0,254.0 356.0,254.0 340.0,276.0 320.0,276.0" fill="#f7e4a0" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="356.0,254.0 376.0,276.0 340.0,276.0" fill="#f1ce55" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="284.0,276.0 320.0,276.0 330.0,324.0" fill="#ecbe1c" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="320.0,276.0 340.0,276.0 330.0,324.0" fill="#f0cc4b" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="340.0,276.0 376.0,276.0 330.0,324.0" fill="#c69e10" stroke="#fbedbb" stroke-width="1" stroke-linejoin="round"/>
+<path class="lead" d="M386,282 H640"/>
+<text class="lab" x="652" y="280">shipped work</text>
+<text class="cap" x="652" y="299">understood, proved, yours</text>
+</g>
+</svg>

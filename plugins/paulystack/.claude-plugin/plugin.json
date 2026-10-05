@@ -1,0 +1,12 @@
+{
+  "name": "paulystack",
+  "version": "0.1.0",
+  "description": "Paul's stack: skills that make you understand what ships and make the agent prove it. Research before acting, proof before \"done\", and you read, decide, and commit. Plain-English prompts, no rigid commands.",
+  "author": {
+    "name": "SupaxInc"
+  },
+  "homepage": "https://github.com/SupaxInc/paulystack",
+  "repository": "https://github.com/SupaxInc/paulystack",
+  "license": "MIT",
+  "keywords": ["verification", "planning", "research", "code-review", "workflow"]
+}
