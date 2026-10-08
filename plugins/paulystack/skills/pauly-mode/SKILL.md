@@ -53,7 +53,7 @@ Home: !`printenv EVAL_PAULY_MODE_HOME || echo "$HOME"`
 
 ## 1. Profile gate
 
-Read `<home>/.claude/verify-profiles/<repo>/profile.md`.
+Read `<home>/.claude/verify-profiles/<repo>/profile.md`, plus the `<service>.md` it links for each service the work touches.
 
 - Missing, on an investigation: continue with `profile: none`; the queries come from the request and the tools connected.
 - Missing, otherwise: stop before editing. Name the path you checked, say `/paulystack:create-verify-profile` creates it, and offer to continue this task with fallback proof labeled `no profile` (the repo's tests, a `.claude/skills/run-*/` or `.claude/skills/verify/` recipe, or a launch from the README).
@@ -76,7 +76,7 @@ An investigation prints `Sources:` instead of a stage (its playbook says how), a
 - New or uncommitted work: local.
 - "It's deployed", "check staging", "is it working in prod", a merged PR: read `${CLAUDE_SKILL_DIR}/references/stages.md` first, then find where the commit actually runs.
 
-Prove it with the profile's section for that stage and the driver it names. The method is yours; the playbook's "Done means" is the bar. Before each step, write what output would prove it (`Expect`). Run it with its full output captured to a log, and quote the log, not the tool preview (Capture, in the report format). Each step gets a verdict: `seen` (output you got this run), `inferred (<from what>)`, `not checked (<why>)`, or `failed`. Inconclusive or wrong-surface proof is never `seen`. When a profile step fails, mark it, work around it, and offer a profile fix; write the fix only on OK.
+Prove it with the profile's section for that stage and the driver it names. The method is yours; the playbook's "Done means" is the bar. Before each step, write what output would prove it (`Expect`). Run it with its full output captured to a log, and quote the log, not the tool preview (Capture, in the report format). Each step gets a verdict: `seen` (output you got this run), `inferred (<from what>)`, `not checked (<why>)`, or `failed`. Inconclusive or wrong-surface proof is never `seen`. When a profile step fails, mark it, work around it, and offer a profile fix; write the fix only on OK. A step that needs a profile value marked `unknown: <what>` is `not checked (profile unknown: <what>)` unless you find the value another way.
 
 A step that proves the final code but ran before a later edit no longer proves it: re-run it before the verdict, or mark it `inferred`. Repro, baseline, and pin steps are meant to come before the edit.
 
