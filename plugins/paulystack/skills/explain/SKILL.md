@@ -2,7 +2,7 @@
 name: explain
 description: Explain ANY concept tersely, first-principles. Anchors picked from the user's known domain (code, everyday life, etc.); visual format chosen to fit the topic. Manual slash command only.
 disable-model-invocation: true
-argument-hint: [topic — e.g. "Zig comptime", "how sourdough rises", "the Treaty of Westphalia", "Raft consensus"]
+argument-hint: '[topic — e.g. "Zig comptime", "how sourdough rises", "the Treaty of Westphalia", "Raft consensus"]'
 ---
 
 # Explain

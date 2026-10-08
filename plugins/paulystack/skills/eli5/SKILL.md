@@ -2,7 +2,7 @@
 name: eli5
 description: Explain a topic like I'm a 5 year old. Use when the user types /paulystack:eli5 <topic> or asks for a dead-simple picture explainer of how something works. Writes a local HTML page, not a published artifact.
 disable-model-invocation: true
-argument-hint: [topic — e.g. "how does DNS work", "why is the sky blue", "what is a Merkle tree"]
+argument-hint: '[topic — e.g. "how does DNS work", "why is the sky blue", "what is a Merkle tree"]'
 ---
 
 # eli5
