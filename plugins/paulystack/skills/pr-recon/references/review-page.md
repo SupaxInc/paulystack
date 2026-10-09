@@ -13,7 +13,7 @@ The HTML page for a PR review. It has three jobs, in order: orient the reader in
 
 One scrolling page, readable on a ~400px screen. No tabs, and no accordions as page structure.
 
-1. **Header.** `PR #<n> <title>`, author, `<base> ← <head>`, the head SHA that was reviewed, and whether it matched the PR head (the freshness check). Then the tally by priority and a one-line CI status from `gh pr checks`. Then the guideline skills loaded for this review, or `none matched`. Show the PR URL as escaped text, never a link.
+1. **Header.** `PR #<n> <title>`, author, `<base> ← <head>`, the head SHA that was reviewed, and whether it matched the PR head (the freshness check). Then the tally by priority and a one-line CI status from `gh pr checks`. Then the guideline skills loaded for this review, or `none matched`, and the terminal's `Related:` line. Show the PR URL and related PR numbers as escaped text, never links. A companion PR's service can be a node in the change map, labeled with its PR number.
 2. **Terms.** `<section id="terms">` with ≤5 entries `<term> — <definition>` for codebase names and stack concepts the page uses, each with `id="term-<slug>"`. The first later use of a term links to its entry. Definitions are ≤12 words and use this PR's real values.
 3. **This PR at a glance.** The debrief of someone else's change:
    - **Intent**, ≤3 sentences: what the PR is for, from its description, checked against the diff. If the diff does something the description doesn't mention (or skips something it promises), say so in one sentence and point to the `question` finding for it.
