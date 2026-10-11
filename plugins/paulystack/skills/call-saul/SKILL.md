@@ -1,6 +1,6 @@
 ---
 name: call-saul
-description: Cross-examines a pauly-mode verification or investigation report like a defense lawyer going through the case file. In a fresh context it treats every step as an unverified claim, tests it against the saved logs, the run's Done means, the user's original request and the diff, and returns only the objections that leave reasonable doubt, each with the command that would answer it. A proof cross-examiner, not a code reviewer. pauly-mode calls it before every verdict except the fast path. Use it directly for "call saul", "better call saul", "cross-examine the verification", "poke holes in the proof", or "is run 3's evidence solid?".
+description: Cross-examines a pauly-mode verification, investigation, or PR review report like a defense lawyer going through the case file. In a fresh context it treats every step as an unverified claim, tests it against the saved logs, the run's Done means, the user's original request and the diff, and returns only the objections that leave reasonable doubt, each with the command that would answer it. A proof cross-examiner, not a code reviewer. pauly-mode calls it before every verdict except the fast path. Use it directly for "call saul", "better call saul", "cross-examine the verification", "poke holes in the proof", or "is run 3's evidence solid?".
 argument-hint: "[which run to cross-examine, in your own words]"
 context: fork
 agent: general-purpose
@@ -37,11 +37,11 @@ This file and the request above are all you know; you can't see the session that
 
 ## 1. Find the run
 
-- Case file: `<home>/.claude/verifications/<repo>/<branch-slug>/report.md`, or `<repo>/<branch-slug>.md` in the old layout. `<repo>` is the basename of the common dir's parent; the slug turns `/` into `-`; a detached HEAD is `detached-<sha7>`. An investigation lives at `<home>/.claude/verifications/<repo>/investigations/<YYYY-MM-DD>-<slug>/report.md`; "investigation" in the request with no path means the newest folder there. A report path or branch named in the request wins.
+- Case file: `<home>/.claude/verifications/<repo>/<branch-slug>/report.md`, or `<repo>/<branch-slug>.md` in the old layout. `<repo>` is the basename of the common dir's parent; the slug turns `/` into `-`; a detached HEAD is `detached-<sha7>`. An investigation lives at `<home>/.claude/verifications/<repo>/investigations/<YYYY-MM-DD>-<slug>/report.md`; "investigation" in the request with no path means the newest folder there. A PR review lives at `<home>/.claude/verifications/<repo>/reviews/pr<N>/report.md`; "review" or a PR number in the request with no path means that folder, or the newest one. A report path or branch named in the request wins.
 - Run: the last `## Run` block, unless the request names a run number, playbook, stage, or words from its `Task:` line.
 - Steps named in the request (a later round, e.g. "steps 1.6–1.8") limit the cross-exam to those steps: apply each check to them alone.
 - Print `⚖ Cross-examining run <n> (<playbook> · <stage>), because <words from the request, or "no run named → latest">`.
-- No report or no matching run: print `No case file at <path>`, list the runs you saw, and stop. A fast-path run (two steps or fewer, no runtime effect): print `No case to argue: fast path` and stop. A `Playbook: investigation` run is never fast path, however short.
+- No report or no matching run: print `No case file at <path>`, list the runs you saw, and stop. A fast-path run (two steps or fewer, no runtime effect): print `No case to argue: fast path` and stop. A `Playbook: investigation` or `Playbook: pr-review` run is never fast path, however short.
 - Logs live at the step's `full log:` path, relative to the report's directory.
 
 ## 2. Cross-examine
@@ -64,6 +64,12 @@ Work through every check. Each objection cites the step and the exhibit (log lin
 11. **Empty results shown.** Each "nothing found" has its own step with the query that came back empty.
 12. **Sources read.** Every source `Task:` names (thread, file, image) appears under `Sources checked`, a thread with its replies.
 13. **Alternatives tested.** `Ruled out` cites a step, and a correlation in time isn't called the cause.
+
+**PR review runs** (`Playbook: pr-review`) judge someone else's PR and change no code: skip checks 3, 5, 6, and 9, and read check 9's diff as the PR's (`git diff origin/<base>...HEAD`) only to confirm a cited line exists. Checks 10–12 apply to the `Findings` block, with `Related read` as the sources. Add:
+
+14. **Label earned.** For each `blocking` or `should fix` finding, the trigger, path, and impact each cite a step whose log holds that line, and at least one author's-side explanation (intentional per the PR body, the same on base, caught by CI, covered by a related PR, order already enforced) is ruled out by a step. A missing hop: `Answer with:` the read-only command that would show it.
+15. **Answerable question.** A `question` a read-only command could settle (a merge or deploy order, whether a caller guards it, what base did) is an objection, answered with that command.
+16. **Same cause.** Two findings settled by the same step, or by the same fix, are one finding: object and name both.
 
 ## 3. Answer
 
