@@ -31,7 +31,7 @@ For each consumer found, check the changes that break readers:
 - a changed status code, error shape, or pagination, or a topic, route, or version renamed
 - a message published before the data it points to is committed
 
-Then ask about deploy order. If the two sides ship separately, is there a window where the new producer talks to the old consumer, or the reverse? A feature flag, a versioned route, or a tolerant reader (ignores unknown fields, defaults missing ones) closes the window. Name which one does, with `file:line`. When the other side's change is an open companion PR, nothing makes the two merge or deploy together, so the window is real unless one of those closes it.
+Then ask about deploy order. If the two sides ship separately, is there a window where the new producer talks to the old consumer, or the reverse? A feature flag, a versioned route, or a tolerant reader (ignores unknown fields, defaults missing ones) closes the window. Name which one does, with `file:line`. When the other side's change is an open companion PR, nothing makes the two merge or deploy together, so the window is real unless one of those closes it. Then name the order that's safe and what the other order breaks, and report it as the merge-order finding in related-prs.md.
 
 ## When the other side can't be read
 

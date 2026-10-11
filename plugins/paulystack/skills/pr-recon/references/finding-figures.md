@@ -1,8 +1,9 @@
 # Finding figures
 
-A review figure proves one claim: this input, through this path, reaches this line and breaks that. Tokens and page rules are in [review-page.md](review-page.md).
+The page has two kinds of figure. The flow figure shows how the PR works, and it's the map findings sit on. A finding figure proves one claim the map can't: this input, through this path, reaches this line and breaks that. Tokens and page rules are in [review-page.md](review-page.md).
 
 ## Contents
+- [The flow figure](#the-flow-figure)
 - [Does it get a figure?](#does-it-get-a-figure)
 - [Finding kind → figure](#finding-kind--figure)
 - [Visual grammar](#visual-grammar)
@@ -10,7 +11,25 @@ A review figure proves one claim: this input, through this path, reaches this li
 - [Stepped animation](#stepped-animation)
 - [Forbidden](#forbidden)
 
+## The flow figure
+
+It follows the page's example input through the PR, numbered hop by hop, changed hops `--head` and unchanged ones `--ctx`. Its caption is the question it answers ("What happens to a part payment after this PR?"). Pick its shape by what the PR changes:
+
+| PR changes | Shape |
+|---|---|
+| A request or job path | Path left→right through every module the input passes, with edge labels carrying its values |
+| Calls between services | Sequence lanes, one per service (framed and labeled with its repo), time top→bottom. Sync calls are solid with a filled arrowhead, async (queue, event) dashed with an open one, and a key shows both |
+| A cache | The read path splitting into hit and miss, the cache node showing `key → value, TTL`, invalidation dashed |
+| Status or lifecycle | A state chart with transitions labeled `event [guard] / action`. New transitions `--head`, removed ones dashed |
+| A schema or migration | A deploy-step timeline (migrate → deploy A → deploy B) showing which code version is live at each step |
+| Retries, ordering, concurrency | Two lanes on a shared timeline, one message per row |
+
+Findings go on it as badges: a numbered circle (`①`) on the hop or edge where the problem happens, linking to `#finding-<N>`, drawn with `--issue` when blocking and `--ctx` otherwise. A finding's own figure only exists when the map can't show its claim: a consumer off the path, a before/after guard, or a deploy window.
+
 ## Does it get a figure?
+
+This section is for finding figures.
+
 
 1. **No figure** for a finding that lives on one or two lines (a wrong operator, an off-by-one, a nit, a naming question). The base vs head excerpt is the evidence.
 2. **A figure** when the claim needs a path or a comparison to believe: a value travels across files, a consumer elsewhere breaks, an ordering goes wrong, or a deploy step leaves a gap.
