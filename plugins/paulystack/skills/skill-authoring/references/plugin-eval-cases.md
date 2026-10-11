@@ -54,11 +54,13 @@ context:
   scaffold_script: fixture.sh
 ```
 
-Also takes `description`, `tags`, `plugins`, `runs`, `expected_outcome`; an `execution:` block (`model`, `max_turns`, `timeout_seconds`, `allowed_tools`, `append_system_prompt`, `env`); and under `context:`, `history_file` (a `.jsonl` transcript to start from) and `add_dirs` (read-only fixture directories).
+Also takes `description`, `tags`, `plugins`, `runs`, `expected_outcome`; an `execution:` block (`model`, `max_turns`, `timeout_seconds`, `allowed_tools`, `append_system_prompt`, and `env`, whose keys must match `EVAL_*`: `PATH` and `HOME` fail the run); and under `context:`, `history_file` (a `.jsonl` transcript to start from) and `add_dirs` (read-only fixture directories).
 
 ## fixture.sh
 
-Runs before Claude starts, in the empty workspace and outside the agent's sandbox — so `git` works here even though it fails inside a run. Its stdout isn't graded. Make it executable.
+Runs before Claude starts, in the empty workspace and outside the agent's sandbox — so `git` works here even though it fails inside a run. Its stdout isn't graded. Make it executable. It runs only with `--scaffold`; without the flag the workspace stays empty.
+
+CLIs can't be mocked and `PATH` can't be changed, so stub one as `bin/<cli>` (a `case "$*"` that prints canned output and appends each call to a log), add `bin/` to `.git/info/exclude`, and point the model at `./bin/<cli>` in the prompt or a fixture file.
 
 ```bash
 git init -q -b main
@@ -78,6 +80,7 @@ Grade a scaffolded file by its contents, not `file_exists` — that grader count
 | `tool_order` | `before`, `after` | first `before` call precedes first `after` call |
 | `file_exists` | `path` (glob), `exists` | a file created during the run matches |
 | `llm` | body = criteria, `focus` | judge votes PASS on the rubric |
+| `baseline` | `baseline_file` (a `.jsonl` in the case dir), body = criteria | judge rates the run at least as good as that reference transcript |
 
 - Common keys: `weight` (default 1), `arm: with-only | both`. Use `flags: i`, not `(?i)`.
 - `target` / `focus` values: `last_message` (default), `trace`, `files` (created paths only), `{ source: file, path: <path> }` (file contents).
@@ -118,9 +121,9 @@ FAIL if <observable failure>.
 
 ```bash
 # Pilot: one arm, one run
-claude plugin eval <plugin-root> --tag my-skill --runs 1 --ablation none --allow-tools Write Edit --no-publish
+claude plugin eval <plugin-root> --tag my-skill --runs 1 --ablation none --scaffold --allow-tools Write Edit --no-publish
 # Paired: 3 runs with and 3 without the plugin — the only run that yields a Δ
-claude plugin eval <plugin-root> --tag my-skill --allow-tools Write Edit --no-publish --max-cost-usd 10 --judge-model sonnet
+claude plugin eval <plugin-root> --tag my-skill --scaffold --allow-tools Write Edit --no-publish --max-cost-usd 10 --judge-model sonnet
 ```
 
 - Every run is a real session on the user's account. Ask before running.
@@ -137,4 +140,5 @@ claude plugin eval <plugin-root> --tag my-skill --allow-tools Write Edit --no-pu
 For `disable-model-invocation: true` skills:
 - Put `/plugin-name:skill-name args` in the prompt body; `-p` expands it.
 - Use `--ablation none` and grade the output, because the no-plugin arm has no such command.
+- To measure a change, run the same cases against the old version too: `git archive` the plugin at the old commit into a scratch dir, copy the new cases into it, and compare per-case scores from `--json <file>` across the two runs. There's no built-in version-vs-version arm.
 - The skill-fired indicator may not fire for slash expansion.
