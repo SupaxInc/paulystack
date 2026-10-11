@@ -26,7 +26,7 @@ Home: !`printenv EVAL_PAULY_MODE_HOME || echo "$HOME"`
 ## The mode
 
 - This invocation turns pauly-mode on for the rest of the session. If the request asks to turn it off ("off", "stop pauly-mode"), say `pauly-mode off` and stop; a plain-chat "stop pauly-mode" later also turns it off.
-- While on, a turn that changes code gets a playbook and a proof before any "done" claim, and so does an investigation: a question whose answer rests on evidence gathered now (logs, metrics, threads, screenshots, runtime output, the code path behind a symptom). Questions about how code works, explanations, reviews, and git operations get your normal behavior.
+- While on, a turn that changes code gets a playbook and a proof before any "done" claim, and so does an investigation: a question whose answer rests on evidence gathered now (logs, metrics, threads, screenshots, runtime output, the code path behind a symptom). Questions about how code works, explanations, reviews other than pr-recon, and git operations get your normal behavior.
 - A follow-up tweak to the same work re-proves only what it touched and appends to the same report.
 - After compaction, re-read the playbook file and the profile before the next proof.
 - No request text: run the profile gate, print the status line, and wait.
@@ -35,7 +35,8 @@ Home: !`printenv EVAL_PAULY_MODE_HOME || echo "$HOME"`
 
 - Another skill's own rules win for its output. pauly-mode only adds proof to work that changes code or investigates.
 - recon on a bug: you may propose a local repro from the profile; run it only if the user asks.
-- pr-recon and debrief-changes stay read-only: run nothing for them.
+- pr-recon: run the pr-review playbook inside it, between its step 6 and step 7. It stays read-only: no edits, GitHub writes, fetches, or checkouts; the report and its logs are the only writes. pr-recon owns the reply, so skip §6 and add only its `Proof:` line.
+- debrief-changes stays read-only: run nothing for it.
 - call-saul run by the user while pauly-mode is on: answer its objections in a `follow-up:` run.
 - plan-kickoff or plan mode: the plan's verification section names the playbook and each stage's checks from the profile. Run only the gate (read-only git); launch nothing and write no report until the plan is approved.
 - A subagent you hand running or verifying work gets the profile path and the Safety rules verbatim; it inherits nothing.
@@ -55,7 +56,7 @@ Home: !`printenv EVAL_PAULY_MODE_HOME || echo "$HOME"`
 
 Read `<home>/.claude/verify-profiles/<repo>/profile.md`, plus the `<service>.md` it links for each service the work touches.
 
-- Missing, on an investigation: continue with `profile: none`; the queries come from the request and the tools connected.
+- Missing, on an investigation or PR review: continue with `profile: none`; the queries come from the request and the tools connected.
 - Missing, otherwise: stop before editing. Name the path you checked, say `/paulystack:create-verify-profile` creates it, and offer to continue this task with fallback proof labeled `no profile` (the repo's tests, a `.claude/skills/run-*/` or `.claude/skills/verify/` recipe, or a launch from the README).
 - Its `origin` differs from Origin above: two repos share the name. Stop and say so.
 - Staleness: if `git cat-file -e <generated_from>^{commit}` succeeds, run `git diff --stat <generated_from> HEAD -- <watch…>`; otherwise `git log --since=<generated_at> --name-only -- <watch…>`. Changed files mean `drifted: <files>`: warn with `/paulystack:create-verify-profile`, keep going, and trust those files over the profile. A profile command that fails later counts as drift too.
@@ -65,14 +66,14 @@ Status line:
 
 ## 2. Playbook
 
-Infer it from the request, the symptom, and any approved plan; a playbook the user names wins. Print `Playbook: <name>, because <words from the request>` so the user can correct it, then read `${CLAUDE_SKILL_DIR}/references/playbooks/<name>.md` (bug, feature, perf, refactor, or investigation).
+Infer it from the request, the symptom, and any approved plan; a playbook the user names wins. Print `Playbook: <name>, because <words from the request>` so the user can correct it, then read `${CLAUDE_SKILL_DIR}/references/playbooks/<name>.md` (bug, feature, perf, refactor, investigation, or pr-review).
 
-- Fast path: a change with no runtime effect (docs, comments, test-only, a config key nothing reads) gets at most two steps proving that, such as `git diff --stat`. An investigation is never the fast path.
+- Fast path: a change with no runtime effect (docs, comments, test-only, a config key nothing reads) gets at most two steps proving that, such as `git diff --stat`. An investigation or PR review is never the fast path.
 - Nothing fits (dependency bump, migration, infra): `Playbook: none (<kind>)`. State the observable claim the change makes and prove it on the lowest stage that can show it.
 
 ## 3. Stage and proof
 
-An investigation prints `Sources:` instead of a stage (its playbook says how), and the freshness and revert rules below don't apply to it. Otherwise, infer the stage and print `Stage: <stage>, because <reason>`:
+An investigation or PR review prints `Sources:` instead of a stage (its playbook says how), and the freshness and revert rules below don't apply to it. Otherwise, infer the stage and print `Stage: <stage>, because <reason>`:
 - New or uncommitted work: local.
 - "It's deployed", "check staging", "is it working in prod", a merged PR: read `${CLAUDE_SKILL_DIR}/references/stages.md` first, then find where the commit actually runs.
 
@@ -84,7 +85,7 @@ Before calling it done, revert every edit the evidence didn't justify: a guess t
 
 ## 4. Report
 
-Append a run block to `<home>/.claude/verifications/<repo>/<branch-slug>/report.md` (branch with `/` → `-`; detached: `detached-<sha7>`), creating the folder and header if needed; logs go in `logs/` beside it. An investigation goes to `<home>/.claude/verifications/<repo>/investigations/<YYYY-MM-DD>-<slug>/report.md` instead. A report in the old layout (`<repo>/<branch-slug>.md`) moves into the folder first. Layout and format: `${CLAUDE_SKILL_DIR}/references/report.md`. Write the header and step blocks first, cross-examine (§5), then write the completion block once.
+Append a run block to `<home>/.claude/verifications/<repo>/<branch-slug>/report.md` (branch with `/` → `-`; detached: `detached-<sha7>`), creating the folder and header if needed; logs go in `logs/` beside it. An investigation goes to `<home>/.claude/verifications/<repo>/investigations/<YYYY-MM-DD>-<slug>/report.md` instead, and a PR review to `<home>/.claude/verifications/<repo>/reviews/pr<N>/report.md`. A report in the old layout (`<repo>/<branch-slug>.md`) moves into the folder first. Layout and format: `${CLAUDE_SKILL_DIR}/references/report.md`. Write the header and step blocks first, cross-examine (§5), then write the completion block once.
 
 ## 5. Cross-exam
 

@@ -1,6 +1,6 @@
 # Verification report
 
-Contents: [Capture](#capture) · [Header](#header) · [Run block](#run-block) · [Excerpt](#excerpt) · [Rules](#rules) · [Investigation run](#investigation-run) · [Example](#example)
+Contents: [Capture](#capture) · [Header](#header) · [Run block](#run-block) · [Excerpt](#excerpt) · [Rules](#rules) · [Investigation run](#investigation-run) · [PR review run](#pr-review-run) · [Example](#example)
 
 One folder per branch, so the report and everything it quotes sit together:
 
@@ -128,6 +128,34 @@ Output (1 of 1 lines · [full log](logs/r1-1.3.log)):
     {"data": [], "meta": {"page": {"after": null}}}
 Verdict: seen · nothing found, so the database was reachable until the first timeout
 ```
+
+## PR review run
+
+Path: `<home>/.claude/verifications/<repo>/reviews/pr<N>/report.md`, with `cross-exam-r<n>.md` and `logs/` beside it. A re-review of the same PR appends a run. Step blocks, Capture, and Excerpt are unchanged; every step is read-only. The header and closing block differ:
+
+```
+# PR review: PR #<n> <title> · <repo>
+Head reviewed: <sha7> (<matches PR head | behind by <k>>) · Base: origin/<base>
+
+## Run <n> · pr-review · <YYYY-MM-DD HH:MM>
+Task: "<the pr-recon arguments, verbatim>"
+Playbook: pr-review · Done means: <the playbook's criteria>
+Report must show: <the playbook's line>
+Sources: PR #<n> + <related PRs> + <services read>
+
+### <n>.<k> … (step blocks)
+
+### Findings
+- 1 · <label> · <title>: trigger <n.k>, path <n.k>, impact <n.k> · ruled out: <explanation> · <n.k>
+- 2 · question · <title>: <what no read-only command could settle>
+Dropped: <candidate> · <why> · <n.k>
+Related read: <#N> <n.k>, …
+Requirements: <requirement> · Met | Partial | Missed | Unclear · source <n.k> · diff <n.k>
+Cross-exam: <as in the run block>
+Verdict: proven | partly proven | not proven
+```
+
+A PR review changes no files, so it has no `Changed files`, `Reverted`, or `Pending`, and Freshness doesn't apply. `Your checks` appears only when a hop needs something only the user can see (a dashboard, a private repo). Every other rule applies.
 
 ## Example
 
